@@ -1,0 +1,88 @@
+*{
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0px;
+  background-color: black;
+}
+
+.background-image {
+  position: fixed;
+  inset: 0 0 0 0;
+  background-image: url("images/Bookshelf.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: blur(1px);
+}
+
+.book-add {
+  display: flex;
+  flex-flow: row nowrap;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 100px;
+  background-color: transparent;
+  align-items: center;
+  justify-content: flex-start;
+  z-index: 1;
+  border-bottom: 1px white solid;
+  color: white;
+}
+
+.book-form {
+  flex: 1;
+  justify-content: space-around;
+  align-items: center;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.form-div {
+  display: flex;
+  flex-flow: column nowrap;
+  color: white;
+}
+
+.form-div label {
+  align-self: center;
+  margin-bottom: 10px;
+  font-family: baskerville, sans-serif;
+  font-size: 17px;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+  height: 22px;
+  width: 200px; 
+  border-radius: 3px;
+  text-align: center;
+  border: none;
+  font-family: baskerville, sans-serif;
+}
+
+select {
+  padding-left: 15px;
+}
+
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.submit-book {
+  height: 30px;
+  width: 100px;
+  background-color: white;
+  font-family: baskerville, sans-serif;
+  border: none;
+  border-radius: 15px;
+}
+
+.container {
+  position: relative;
+  padding-top: 100px;
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="library.css" />
+  </head>
+  <body>
+    <div class="background-image"></div>
+    <div class="book-add">
+      <h1>Add</h1>
+      <form class="book-form">
+        <div class="form-div">
+          <label>Book Title</label>
+          <input
+            class="book-title"
+            type="text"
+            name="book-title"
+            placeholder="Catcher in the Rye"
+          />
+        </div>
+        <div class="form-div">
+          <label>Author</label>
+          <input
+            class="book-author"
+            type="text"
+            name="book-author"
+            placeholder="Andre Aciman"
+          />
+        </div>
+        <div class="form-div">
+          <label>Genre</label>
+          <select class="book-genre" name="book-title">
+            <optgroup label="Fiction">
+              <option value="fantasy">Fantasy</option>
+              <option value="dystopian">Dystopian</option>
+              <option value="thriller">Thriller</option>
+              <option value="mystery">Mystery</option>
+              <option value="romance">Romancy</option>
+              <option value="horror">Horror</option>
+              <option value="adventure">Adventure</option>
+              <option value="young_adult">Young Adult</option>
+            </optgroup>
+            <optgroup label="Non-Fiction">
+              <option value="memoir">Memoir</option>
+              <option value="biography">Biography</option>
+              <option value="self-help">Self-Help</option>
+              <option value="history">History</option>
+              <option value="business_and_economics">
+                Business and Economics
+              </option>
+            </optgroup>
+          </select>
+        </div>
+        <div class="form-div">
+          <label>Pages</label>
+          <input
+            class="book-pages"
+            type="number"
+            name="book-pages"
+            placeholder="33"
+          />
+        </div>
+        <button class="submit-book" type="sumbit">Add Book</button>
+      </form>
+    </div>
+    <div class="container">
+      <div style="color: white">hello</div>
+    </div>
+  </body>
+</html>
