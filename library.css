@@ -5,6 +5,7 @@
 body {
   margin: 0px;
   background-color: black;
+  position: relative;
 }
 
 .background-image {
@@ -13,31 +14,54 @@ body {
   background-image: url("images/Bookshelf.png");
   background-size: cover;
   background-repeat: no-repeat;
-  filter: blur(1px);
+  filter: blur(0px);
+  z-index: -1;
 }
 
-.book-add {
+.add-container {
+  position: absolute;
+  z-index: 10;
+  top: 31px;
+  left: 25px;
+  width: 125px;
   display: flex;
   flex-flow: row nowrap;
-  position: fixed;
-  top: 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-book-button {
+  height: 38px;
+  width: 120px;
+  padding: 0;
+  background-color: white;
+  font-family: baskerville, sans-serif;
+  font-size: 15px;
+  border: none;
+  border-radius: 20px;
+  transition: .5s;
+}
+
+.form-add {
+  display: flex;
+  flex-flow: row nowrap;
+  position: absolute;
+  top: -200px;
   right: 0;
   left: 0;
   height: 100px;
+  padding-left: 200px;
   background-color: transparent;
   align-items: center;
-  justify-content: flex-start;
-  z-index: 1;
+  justify-content: space-evenly;
   border-bottom: 1px white solid;
   color: white;
+  transition: 1s;
+  z-index: 1;
 }
 
-.book-form {
-  flex: 1;
-  justify-content: space-around;
-  align-items: center;
-  display: flex;
-  flex-flow: row nowrap;
+.form-add.show {
+  top: 0px;
 }
 
 .form-div {
@@ -83,6 +107,155 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .container {
-  position: relative;
+  position: absolute;
+  height: 100vh;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  overflow: hidden;
+  transition: 1s;
+  padding-top: 0px;
+}
+
+.container.show {
   padding-top: 100px;
+}
+
+.card {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 30px;
+  position: relative;
+}
+
+.card-image {
+  height: 450px;
+  width: 300px;
+  transition: 1s;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-info {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-info h2 {
+  margin-bottom: 0;
+  font-style: bold;
+}
+
+.card-info-list {
+  list-style: none;
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 0;
+  margin: 10px 0px;
+}
+
+.card-info-list > li:not(:last-child)::after {
+  content: "|";
+  margin: 0px .5rem;
+}
+
+.card-remove {
+  display: block;
+  color: white;
+  font-family: baskerville, sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  background-color: red;
+  opacity: 1;
+  border: none;
+  height: 20px;
+  width: 70px;
+  border-radius: 10px;
+  transition: .5s;
+  z-index: 10;
+}
+
+.card-remove:hover {
+  cursor: pointer;
+}
+
+.nav-tool {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#slide1:target ~ .container #card1 .card-image,
+#slide2:target ~ .container #card2 .card-image,
+#slide3:target ~ .container #card3 .card-image,
+#slide4:target ~ .container #card4 .card-image,
+#slide5:target ~ .container #card5 .card-image,
+#slide6:target ~ .container #card6 .card-image,
+#slide7:target ~ .container #card7 .card-image,
+#slide8:target ~ .container #card8 .card-image,
+#slide9:target ~ .container #card9 .card-image {
+  height: 562.5px;
+  width: 375px;
+}
+
+#slide1:target ~ .container #card1 .card-remove,
+#slide2:target ~ .container #card2 .card-remove,
+#slide3:target ~ .container #card3 .card-remove,
+#slide4:target ~ .container #card4 .card-remove,
+#slide5:target ~ .container #card5 .card-remove,
+#slide6:target ~ .container #card6 .card-remove,
+#slide7:target ~ .container #card7 .card-remove,
+#slide8:target ~ .container #card8 .card-remove,
+#slide9:target ~ .container #card9 .card-remove {
+  opacity: 1; 
+}
+
+#slide1:target ~ .container {
+  left: 145.2%;
+}
+
+#slide2:target ~ .container {
+  left: 121.4%;
+}
+
+#slide3:target ~ .container {
+  left: 97.6%;
+}
+
+#slide4:target ~ .container {
+  left: 73.8%;
+}
+
+#slide5:target ~ .container {
+  left: 50%;
+}
+
+#slide6:target ~ .container {
+  left: 26.2%;
+}
+
+#slide7:target ~ .container {
+  left: 2.4%;
+}
+
+#slide8:target ~ .container {
+  left: -21.4%;
+}
+
+#slide9:target ~ .container {
+  left: -45.2%;
 }

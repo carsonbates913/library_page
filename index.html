@@ -6,67 +6,227 @@
     <title>Document</title>
     <link rel="stylesheet" href="library.css" />
   </head>
+
   <body>
     <div class="background-image"></div>
-    <div class="book-add">
-      <h1>Add</h1>
-      <form class="book-form">
-        <div class="form-div">
-          <label>Book Title</label>
-          <input
-            class="book-title"
-            type="text"
-            name="book-title"
-            placeholder="Catcher in the Rye"
-          />
-        </div>
-        <div class="form-div">
-          <label>Author</label>
-          <input
-            class="book-author"
-            type="text"
-            name="book-author"
-            placeholder="Andre Aciman"
-          />
-        </div>
-        <div class="form-div">
-          <label>Genre</label>
-          <select class="book-genre" name="book-title">
-            <optgroup label="Fiction">
-              <option value="fantasy">Fantasy</option>
-              <option value="dystopian">Dystopian</option>
-              <option value="thriller">Thriller</option>
-              <option value="mystery">Mystery</option>
-              <option value="romance">Romancy</option>
-              <option value="horror">Horror</option>
-              <option value="adventure">Adventure</option>
-              <option value="young_adult">Young Adult</option>
-            </optgroup>
-            <optgroup label="Non-Fiction">
-              <option value="memoir">Memoir</option>
-              <option value="biography">Biography</option>
-              <option value="self-help">Self-Help</option>
-              <option value="history">History</option>
-              <option value="business_and_economics">
-                Business and Economics
-              </option>
-            </optgroup>
-          </select>
-        </div>
-        <div class="form-div">
-          <label>Pages</label>
-          <input
-            class="book-pages"
-            type="number"
-            name="book-pages"
-            placeholder="33"
-          />
-        </div>
-        <button class="submit-book" type="sumbit">Add Book</button>
-      </form>
+
+    <!--Book Add Dropdown-->
+    <div class="add-container">
+      <button class="add-book-button">Add Book</button>
     </div>
+    <form class="form-add">
+      <div class="form-div">
+        <label for="book-title">Book Title</label>
+        <input
+          id="book-title"
+          type="text"
+          name="book-title"
+          placeholder="Catcher in the Rye"
+        />
+      </div>
+      <div class="form-div">
+        <label for="book-author">Author</label>
+        <input
+          id="book-author"
+          type="text"
+          name="book-author"
+          placeholder="Andre Aciman"
+        />
+      </div>
+      <div class="form-div">
+        <label for="book-genre">Genre</label>
+        <select id="book-genre" name="book-genre">
+          <optgroup label="Fiction">
+            <option value="fantasy">Fantasy</option>
+            <option value="dystopian">Dystopian</option>
+            <option value="thriller">Thriller</option>
+            <option value="mystery">Mystery</option>
+            <option value="romance">Romancy</option>
+            <option value="horror">Horror</option>
+            <option value="adventure">Adventure</option>
+            <option value="young_adult">Young Adult</option>
+          </optgroup>
+          <optgroup label="Non-Fiction">
+            <option value="memoir">Memoir</option>
+            <option value="biography">Biography</option>
+            <option value="self-help">Self-Help</option>
+            <option value="history">History</option>
+            <option value="business_and_economics">
+              Business and Economics
+            </option>
+          </optgroup>
+        </select>
+      </div>
+      <div class="form-div">
+        <label for="book-pages">Pages</label>
+        <input
+          id="book-pages"
+          type="number"
+          name="book-pages"
+          placeholder="33"
+        />
+      </div>
+      <div class="form-div">
+        <label for="book-image">Choose an image:</label>
+        <input type="file" id="book-image" name="book-pages" accept="image/*" />
+      </div>
+      <button class="submit-book" type="submit">Add Book</button>
+    </form>
+
+    <!--Main-->
+
+    <span class="slide" id="slide1"></span>
+    <span class="slide" id="slide2"></span>
+    <span class="slide" id="slide3"></span>
+    <span class="slide" id="slide4"></span>
+    <span class="slide" id="slide5"></span>
+    <span class="slide" id="slide6"></span>
+    <span class="slide" id="slide7"></span>
+    <span class="slide" id="slide8"></span>
+    <span class="slide" id="slide9"></span>
     <div class="container">
-      <div style="color: white">hello</div>
+      <div class="card" id="card1">
+        <div class="card-image">
+          <img src="images/Misery.jpg" />
+        </div>
+        <div class="card-info">
+          <h2>Misery</h2>
+          <ul class="card-info-list">
+            <li>Author</li>
+            <li>Genre</li>
+            <li>Pages</li>
+          </ul>
+        </div>
+        <button class="card-remove">remove</button>
+        <a href="#slide1" class="nav-tool"></a>
+      </div>
+      <div class="card" id="card2">
+        <div class="card-image">
+          <img src="images/Less.jpg" />
+        </div>
+        <div class="card-info">
+          <h2>Less</h2>
+          <ul class="card-info-list">
+            <li>Author</li>
+            <li>Genre</li>
+            <li>Pages</li>
+          </ul>
+        </div>
+        <button class="card-remove">remove</button>
+        <a href="#slide2" class="nav-tool"></a>
+      </div>
+      <div class="card" id="card3">
+        <div class="card-image">
+          <img src="images/Mockingbird.jpg" />
+        </div>
+        <div class="card-info">
+          <h2>To Kill A Mockingbird</h2>
+          <ul class="card-info-list">
+            <li>Author</li>
+            <li>Genre</li>
+            <li>Pages</li>
+          </ul>
+        </div>
+        <button class="card-remove">remove</button>
+        <a href="#slide3" class="nav-tool"></a>
+      </div>
+      <div class="card" id="card4">
+        <div class="card-image">
+          <img src="images/CallMeByYourName.jpg" />
+        </div>
+        <div class="card-info">
+          <h2>Call Me by Your Name</h2>
+          <ul class="card-info-list">
+            <li>Author</li>
+            <li>Genre</li>
+            <li>Pages</li>
+          </ul>
+        </div>
+        <button class="card-remove">remove</button>
+        <a href="#slide4" class="nav-tool"></a>
+      </div>
+      <div class="card" id="card5">
+        <div class="card-image">
+          <img src="images/Tomorrow.jpg" />
+        </div>
+        <div class="card-info">
+          <h2 style="text-align: center">
+            Tomorrow, and Tomorrow, and Tomorrow
+          </h2>
+          <ul class="card-info-list">
+            <li>Author</li>
+            <li>Genre</li>
+            <li>Pages</li>
+          </ul>
+        </div>
+        <button class="card-remove">remove</button>
+        <a href="#slide5" class="nav-tool"></a>
+      </div>
+      <div class="card" id="card6">
+        <div class="card-image">
+          <img src="images/HungerGames.jpg" />
+        </div>
+        <div class="card-info">
+          <h2>The Hunger Games</h2>
+          <ul class="card-info-list">
+            <li>Author</li>
+            <li>Genre</li>
+            <li>Pages</li>
+          </ul>
+        </div>
+        <button class="card-remove">remove</button>
+        <a href="#slide6" class="nav-tool"></a>
+      </div>
+      <div class="card" id="card7">
+        <div class="card-image">
+          <img src="images/ReaderPlayerOne.jpg" />
+        </div>
+        <div class="card-info">
+          <h2>Ready Player One</h2>
+          <ul class="card-info-list">
+            <li>Author</li>
+            <li>Genre</li>
+            <li>Pages</li>
+          </ul>
+        </div>
+        <button class="card-remove">remove</button>
+        <a href="#slide7" class="nav-tool"></a>
+      </div>
+      <div class="card" id="card8">
+        <div class="card-image">
+          <img src="images/SongOfAchilles.jpg" />
+        </div>
+        <div class="card-info">
+          <h2>The Song of Achilles</h2>
+          <ul class="card-info-list">
+            <li>Author</li>
+            <li>Genre</li>
+            <li>Pages</li>
+          </ul>
+        </div>
+        <button class="card-remove">remove</button>
+        <a href="#slide8" class="nav-tool"></a>
+      </div>
+      <div class="card" id="card9">
+        <div class="card-image">
+          <img src="images/TheGreatGatsby.jpg" />
+        </div>
+        <div class="card-info">
+          <h2>The Great Gatsby</h2>
+          <ul class="card-info-list">
+            <li>Author</li>
+            <li>Genre</li>
+            <li>Pages</li>
+          </ul>
+        </div>
+        <button class="card-remove">remove</button>
+        <a href="#slide9" class="nav-tool"></a>
+      </div>
     </div>
+    <script src="library.js"></script>
+    <script
+      src="https://kit.fontawesome.com/84feef4628.js"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
