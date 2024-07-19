@@ -178,7 +178,7 @@ input[type="number"]::-webkit-inner-spin-button {
   font-size: 15px;
   font-weight: bold;
   background-color: red;
-  opacity: 1;
+  opacity: 0;
   border: none;
   height: 20px;
   width: 70px;
@@ -199,19 +199,7 @@ input[type="number"]::-webkit-inner-spin-button {
   height: 100%;
 }
 
-#slide1:target ~ .container #card1 .card-image,
-#slide2:target ~ .container #card2 .card-image,
-#slide3:target ~ .container #card3 .card-image,
-#slide4:target ~ .container #card4 .card-image,
-#slide5:target ~ .container #card5 .card-image,
-#slide6:target ~ .container #card6 .card-image,
-#slide7:target ~ .container #card7 .card-image,
-#slide8:target ~ .container #card8 .card-image,
-#slide9:target ~ .container #card9 .card-image {
-  height: 562.5px;
-  width: 375px;
-}
-
+#slide0:target ~ .container #card0 .card-remove,
 #slide1:target ~ .container #card1 .card-remove,
 #slide2:target ~ .container #card2 .card-remove,
 #slide3:target ~ .container #card3 .card-remove,
@@ -222,40 +210,4 @@ input[type="number"]::-webkit-inner-spin-button {
 #slide8:target ~ .container #card8 .card-remove,
 #slide9:target ~ .container #card9 .card-remove {
   opacity: 1; 
-}
-
-#slide1:target ~ .container {
-  left: 145.2%;
-}
-
-#slide2:target ~ .container {
-  left: 121.4%;
-}
-
-#slide3:target ~ .container {
-  left: 97.6%;
-}
-
-#slide4:target ~ .container {
-  left: 73.8%;
-}
-
-#slide5:target ~ .container {
-  left: 50%;
-}
-
-#slide6:target ~ .container {
-  left: 26.2%;
-}
-
-#slide7:target ~ .container {
-  left: 2.4%;
-}
-
-#slide8:target ~ .container {
-  left: -21.4%;
-}
-
-#slide9:target ~ .container {
-  left: -45.2%;
 }

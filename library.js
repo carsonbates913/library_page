@@ -33,6 +33,7 @@ function addToLibrary () {
   pages.value = "";
 
   updateDisplay();
+  location.hash = `slide${slides.length-1}`;
 }
 
 const addBook = document.querySelector(".submit-book");
@@ -101,14 +102,19 @@ function updateDisplay() {
   
     container.appendChild(newCard);
 
-    document.body.appendChild(slide);
+    const firstChild = document.body.firstChild;
+    document.body.insertBefore(slide, firstChild);
 
   }
   document.querySelectorAll('.card-remove').forEach(button => {
     button.addEventListener('click', function() {
+      const targetSlide = document.querySelector(':target');
+      const reversedArray = Array.from(slides).reverse();
+      const index = reversedArray.indexOf(targetSlide);
       myLibrary.splice(button.getAttribute('data-index'), 1);
       console.log(myLibrary);
       updateDisplay();
+      location.hash = `slide${index-1}`
     });
   });
 
@@ -137,7 +143,8 @@ window.addEventListener('hashchange', function () {
   console.log("hello");
   const container = document.querySelector(".container");
   const targetSlide = document.querySelector(':target');
-  const index = Array.from(slides).indexOf(targetSlide);
+  const reversedArray = Array.from(slides).reverse();
+  const index = reversedArray.indexOf(targetSlide);
   container.style.left = "756px";
   container.style.transform = `TranslateX(${-217.5 - index * 360}px)`;
   document.querySelectorAll('.card-image').forEach(card => {
