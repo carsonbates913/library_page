@@ -132,6 +132,7 @@ input[type="number"]::-webkit-inner-spin-button {
   align-items: center;
   margin: 0px 30px;
   position: relative;
+  overflow: hidden;
 }
 
 .card-image {
@@ -144,6 +145,42 @@ input[type="number"]::-webkit-inner-spin-button {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.read-button {
+  position: absolute;
+  background: none;
+  width: 34px;
+  height: 42px;
+  border: none;
+  padding: 0;
+  z-index: 1;
+  color: #caf0f8;
+  overflow: hidden;
+  transition: .5s;
+  left: 15px;
+  top: -24px; 
+  opacity: 0;
+}
+
+.read-button:hover {
+  color: #63d2ff;
+}
+
+.read-button.active{
+  opacity: 1;
+}
+
+.read-button.hasRead{
+  color: white;
+  top: 0px;
+  opacity: 1;
+}
+
+.bookmark {
+  position: absolute;
+  top: -5px;
+  left: -8px;
 }
 
 .card-info {
@@ -185,10 +222,15 @@ input[type="number"]::-webkit-inner-spin-button {
   border-radius: 10px;
   transition: .5s;
   z-index: 10;
+  opacity: 0;
 }
 
 .card-remove:hover {
   cursor: pointer;
+}
+
+.card-remove.active {
+  opacity: 1;
 }
 
 .nav-tool {
@@ -199,15 +241,8 @@ input[type="number"]::-webkit-inner-spin-button {
   height: 100%;
 }
 
-#slide0:target ~ .container #card0 .card-remove,
-#slide1:target ~ .container #card1 .card-remove,
-#slide2:target ~ .container #card2 .card-remove,
-#slide3:target ~ .container #card3 .card-remove,
-#slide4:target ~ .container #card4 .card-remove,
-#slide5:target ~ .container #card5 .card-remove,
-#slide6:target ~ .container #card6 .card-remove,
-#slide7:target ~ .container #card7 .card-remove,
-#slide8:target ~ .container #card8 .card-remove,
-#slide9:target ~ .container #card9 .card-remove {
+[id*="slide"]:not(:target) ~ .container [id*=
+"card"] .read-not-active
+ {
   opacity: 1; 
 }

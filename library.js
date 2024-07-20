@@ -9,6 +9,10 @@ function Book(title, author, genre, pages, cover, hasRead){
   this.cover = cover;
 }
 
+Book.prototype.read = function(){
+  this.hasRead = !this.hasRead;
+}
+
 let slides = document.querySelectorAll('.slide');
 
 function addToLibrary () {
@@ -52,12 +56,21 @@ function updateDisplay() {
     const newCard = document.createElement('div');
     newCard.classList.add("card");
     newCard.id = `card${i}`;
+    newCard.setAttribute('data-index', i);
 
     const cardImage = document.createElement('div');
     cardImage.classList.add('card-image');
 
     const cardCover = document.createElement('img');
     cardCover.src = `${myLibrary[i].cover}`;
+
+    const readButton = document.createElement('button');
+    readButton.classList.add(`read-button`);
+    myLibrary[i].hasRead && readButton.classList.add('hasRead');
+    readButton.innerHTML = `<svg class="bookmark" viewBox="0 0 24 24" width="50" height="50" fill="currentColor">
+            <path d="M6 2a2 2 0 0 0-2 2v18l8-5.333L20 22V4a2 2 0 0 0-2-2H6z">
+            </path>
+        </svg>`
 
     const cardInfo = document.createElement('div');
     cardInfo.classList.add('card-info');
@@ -78,7 +91,7 @@ function updateDisplay() {
     const removeButton = document.createElement('button');
     removeButton.innerText = 'remove';
     removeButton.classList.add('card-remove');
-    removeButton.setAttribute('data-index', i);
+    
 
     const navTool = document.createElement('a');
     navTool.href = `#slide${i}`;
@@ -91,6 +104,7 @@ function updateDisplay() {
 
     newCard.appendChild(cardImage);
     cardImage.appendChild(cardCover);
+    newCard.appendChild(readButton);
     newCard.appendChild(cardInfo);
     cardInfo.appendChild(cardTitle);
     cardInfo.appendChild(cardInfoList);
@@ -108,14 +122,19 @@ function updateDisplay() {
   }
   document.querySelectorAll('.card-remove').forEach(button => {
     button.addEventListener('click', function() {
-      const targetSlide = document.querySelector(':target');
-      const reversedArray = Array.from(slides).reverse();
-      const index = reversedArray.indexOf(targetSlide);
-      myLibrary.splice(button.getAttribute('data-index'), 1);
+      myLibrary.splice(button.closest(".card").getAttribute('data-index'), 1);
       console.log(myLibrary);
       updateDisplay();
-      location.hash = `slide${index-1}`
+      location.hash = `slide${(button.closest(".card").getAttribute('data-index'))-1}`;
     });
+  });
+
+  document.querySelectorAll(".read-button").forEach(button => {
+    button.addEventListener("click", function() {
+      const book = myLibrary[button.closest(".card").getAttribute('data-index')];
+      book.read();
+      book.hasRead ? button.classList.add("hasRead") : button.classList.remove("hasRead"); 
+    })
   });
 
   slides = document.querySelectorAll('.slide');
@@ -128,9 +147,9 @@ addButton.addEventListener('click', function() {
   const container = document.querySelector(".container");
   container.classList.toggle('show');
 
-  addButton.classList.toggle('active');
+  addButton.classList.toggle('add-active');
     
-    if (addButton.classList.contains('active')) {
+    if (addButton.classList.contains('add-active')) {
         addButton.innerHTML = '<i class="fa-solid fa-x"></i>';
         addButton.style.width = '61px';
     } else {
@@ -153,4 +172,15 @@ window.addEventListener('hashchange', function () {
 });
   document.querySelector(`#card${index} > .card-image`).style.height = '562.5px';
   document.querySelector(`#card${index} > .card-image`).style.width = '375px';
+
+  this.document.querySelectorAll(".card-remove").forEach(button => {
+    button.classList.remove("active");
+  });
+  document.querySelector(`#card${index} .card-remove`).classList.add("active");
+
+  this.document.querySelectorAll(".read-button").forEach(button => {
+    button.classList.remove("active");
+  });
+  document.querySelector(`#card${index} .read-button`).classList.add("active");
+
 })
