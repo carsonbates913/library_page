@@ -1,16 +1,20 @@
+/* Global Styles */
+
 *{
   box-sizing: border-box;
 }
 
 body {
+  position: relative;
   margin: 0px;
   background-color: black;
-  position: relative;
 }
+
+/* Background Image */
 
 .background-image {
   position: fixed;
-  inset: 0 0 0 0;
+  inset: 0;
   background-image: url("images/Bookshelf.png");
   background-size: cover;
   background-repeat: no-repeat;
@@ -18,11 +22,13 @@ body {
   z-index: -1;
 }
 
+/* Add Book Button and Form */
+
 .add-container {
   position: absolute;
-  z-index: 10;
   top: 31px;
   left: 25px;
+  z-index: 10;
   width: 125px;
   display: flex;
   flex-flow: row nowrap;
@@ -34,30 +40,30 @@ body {
   height: 38px;
   width: 120px;
   padding: 0;
+  border: none;
+  border-radius: 20px;
   background-color: white;
   font-family: baskerville, sans-serif;
   font-size: 15px;
-  border: none;
-  border-radius: 20px;
   transition: .5s;
 }
 
 .form-add {
-  display: flex;
-  flex-flow: row nowrap;
   position: absolute;
   top: -200px;
   right: 0;
   left: 0;
+  z-index: 1;
   height: 100px;
   padding-left: 200px;
+  border-bottom: 1px white solid;
   background-color: transparent;
+  color: white;
+  display: flex;
+  flex-flow: row nowrap;
   align-items: center;
   justify-content: space-evenly;
-  border-bottom: 1px white solid;
-  color: white;
   transition: 1s;
-  z-index: 1;
 }
 
 .form-add.show {
@@ -83,8 +89,8 @@ select {
   height: 22px;
   width: 200px; 
   border-radius: 3px;
-  text-align: center;
   border: none;
+  text-align: center;
   font-family: baskerville, sans-serif;
 }
 
@@ -100,17 +106,20 @@ input[type="number"]::-webkit-inner-spin-button {
 .submit-book {
   height: 30px;
   width: 100px;
-  background-color: white;
-  font-family: baskerville, sans-serif;
   border: none;
   border-radius: 15px;
+  background-color: white;
+  font-family: baskerville, sans-serif;
 }
+
+/* Main */
 
 .container {
   position: absolute;
-  height: 100vh;
   left: 50%;
   transform: translateX(-50%);
+  height: 100vh;
+  padding-top: 0px;
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
@@ -118,20 +127,21 @@ input[type="number"]::-webkit-inner-spin-button {
   color: white;
   overflow: hidden;
   transition: 1s;
-  padding-top: 0px;
 }
 
 .container.show {
   padding-top: 100px;
 }
 
+/* Card */
+
 .card {
+  position: relative;
+  margin: 0px 30px;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-  margin: 0px 30px;
-  position: relative;
   overflow: hidden;
 }
 
@@ -149,17 +159,17 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .read-button {
   position: absolute;
-  background: none;
+  left: 15px;
+  top: -24px; 
+  z-index: 1;
   width: 34px;
   height: 42px;
-  border: none;
   padding: 0;
-  z-index: 1;
+  border: none;
+  background: none;
   color: #caf0f8;
   overflow: hidden;
   transition: .5s;
-  left: 15px;
-  top: -24px; 
   opacity: 0;
 }
 
@@ -196,11 +206,11 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .card-info-list {
-  list-style: none;
   display: flex;
   flex-flow: row nowrap;
   padding: 0;
   margin: 10px 0px;
+  list-style: none;
 }
 
 .card-info-list > li:not(:last-child)::after {
@@ -209,6 +219,11 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .card-remove {
+  z-index: 10;
+  height: 20px;
+  width: 70px;
+  border: none;
+  border-radius: 10px;
   display: block;
   color: white;
   font-family: baskerville, sans-serif;
@@ -216,12 +231,7 @@ input[type="number"]::-webkit-inner-spin-button {
   font-weight: bold;
   background-color: red;
   opacity: 0;
-  border: none;
-  height: 20px;
-  width: 70px;
-  border-radius: 10px;
   transition: .5s;
-  z-index: 10;
   opacity: 0;
 }
 
@@ -239,10 +249,4 @@ input[type="number"]::-webkit-inner-spin-button {
   left: 0;
   width: 100%;
   height: 100%;
-}
-
-[id*="slide"]:not(:target) ~ .container [id*=
-"card"] .read-not-active
- {
-  opacity: 1; 
 }
